@@ -1,0 +1,23 @@
+<div style="height: 1000px; background-color: lightgray">
+  <div class="container" style="padding-top: 100px; border: 5px">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="form-control" style="background-color: #656891">
+          <p style="color: white">Username:</p>
+          <input type="text" class="form-control" formControlName="username">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-control" style="background-color: #656891">
+          <p style="color: white">Password:</p>
+          <input type="password" class="form-control" formControlName="password">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-control" style="background-color: #656891">
+          <input type="submit" value="Authenticate" class="btn btn-warning">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
