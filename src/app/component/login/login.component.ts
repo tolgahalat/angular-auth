@@ -22,14 +22,21 @@ export class LoginComponent implements OnInit{
   onSubmit() {
     console.log(this.loginForm.value);
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Basic ' + btoa(this.loginForm.value.username + ':' + this.loginForm.value.password)
-      })
-    };
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     'Content-Type':  'application/json',
+    //     'Authorization': 'Basic ' + btoa(this.loginForm.value.username + ':' + this.loginForm.value.password)
+    //   })
+    // };
 
-    this.http.post('http://localhost:8080/auth/welcome', httpOptions).subscribe(x => {
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Test': this.loginForm.value.username,
+    "tolga": this.loginForm.value.password,
+          'Authorization': 'Basic ' + btoa(this.loginForm.value.username + ':' + this.loginForm.value.password)});
+    let options = { headers: headers };
+
+    this.http.post('http://localhost:8080/auth/admin/adminProfile', {}, options).subscribe(x => {
       console.log(x);
     });
   }
